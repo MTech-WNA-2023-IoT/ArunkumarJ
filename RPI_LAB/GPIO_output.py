@@ -22,5 +22,3 @@ time.sleep(2)
   GPIO.output(17,GPIO.LOW)
   time.sleep(1)
   a=a+1
-
- print(a)
