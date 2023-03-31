@@ -9,8 +9,12 @@ GPIO.setmode(GPIO.BCM)
 #Configure GPIO Pin 17 as output
 GPIO.setup(17,GPIO.OUT) 
 #Set GPIO Pin to High
-GPIO.output(17,GPIO.HIGH)
+a=0
+while a <= 5:
+  GPIO.output(17,GPIO.HIGH):
 #Wait for 1sec
-time.sleep(1)
+  time.sleep(1)
 #Set GPIO Pin to Low
-GPIO.output(17,GPIO.LOW)
+  GPIO.output(17,GPIO.LOW)
+  time.sleep(1)
+  a=a+1
