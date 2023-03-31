@@ -11,7 +11,7 @@ GPIO.setup(17,GPIO.OUT)
 #Set GPIO Pin to High
 a=0
 while a <= 5:
-  GPIO.output(17,GPIO.HIGH):
+  GPIO.output(17,GPIO.HIGH)
 #Wait for 1sec
 <<<<<<< HEAD
 time.sleep(2)
