@@ -2,15 +2,15 @@ import paho.mqtt.client as mqtt
 import mysql.connector
 
 # MQTT broker settings
-broker_address = "mqtt.example.com"
+broker_address = "http://34.93.203.151/"
 broker_port = 1883
-topic = "sensors/data"
+topic = "Sensor/TEMP"
 
 # MySQL database settings
-db_host = "localhost"
-db_user = "root"
-db_password = "password"
-db_name = "sensors"
+db_host = "http://34.93.203.151/"
+db_user = "pi"
+db_password = "raspberry"
+db_name = "IOTData"
 
 # Connect to the MQTT broker
 def on_connect(client, userdata, flags, rc):
