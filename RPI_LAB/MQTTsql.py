@@ -7,7 +7,7 @@ broker_port = 1883
 topic = "Sensor/TEMP"
 
 # MySQL database settings
-db_host = "http://34.93.203.151/phpmyadmin/"
+db_host = "localhost"
 db_user = "pi"
 db_password = "raspberry"
 db_name = "IOTData"
@@ -37,10 +37,10 @@ def on_message(client, userdata, msg):
     cursor.close()
     db.close()
 
-# Connect to the MQTT broker and start the main loop
-client = mqtt.Client()
-client.on_connect = on_connect
-client.on_message = on_message
-client.connect(broker_address, broker_port)
-client.loop_forever()
+# # Connect to the MQTT broker and start the main loop
+# client = mqtt.Client()
+# client.on_connect = on_connect
+# client.on_message = on_message
+# client.connect(broker_address, broker_port)
+# client.loop_forever()
 
