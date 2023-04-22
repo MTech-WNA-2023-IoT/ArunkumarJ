@@ -28,7 +28,7 @@ def on_message(client, userdata, msg):
     cursor = db.cursor()
 
     # Insert sensor data into the database
-    sql = "INSERT INTO `MQTTData` (`ID`, `TimeStamp`, `Topic`, `MyData`) VALUES (NULL, current_timestamp(), Sensor/TEMP, '38');"
+    sql = "INSERT INTO `MQTTData` (`ID`, `TimeStamp`, `Topic`, `MyData`) VALUES (NULL, current_timestamp(), NULL, '38');"
     val = (sensor_data,)
     cursor.execute(sql, val)
     db.commit()
