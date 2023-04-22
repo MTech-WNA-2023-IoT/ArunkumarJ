@@ -27,7 +27,7 @@ def on_message(client, userdata, msg):
     cursor = db.cursor()
 
     # Insert sensor data into the database
-    sql = "INSERT INTO `MQTTData` (`ID`, `TimeStamp`, `Topic`, `MyData`) VALUES ('7', current_timestamp(), 'Sensor/TEMP', '30');"
+    sql = "INSERT INTO `MQTTData` (`ID`, `TimeStamp`, `Topic`, `MyData`) VALUES ('8', current_timestamp(), 'Sensor/TEMP', '38');"
     val = (sensor_data,)
     cursor.execute(sql, val)
     db.commit()
@@ -37,10 +37,10 @@ def on_message(client, userdata, msg):
     cursor.close()
     db.close()
 
-# # Connect to the MQTT broker and start the main loop
-# client = mqtt.Client()
-# client.on_connect = on_connect
-# client.on_message = on_message
-# client.connect(broker_address, broker_port)
-# client.loop_forever()
+# Connect to the MQTT broker and start the main loop
+client = mqtt.Client()
+client.on_connect = on_connect
+client.on_message = on_message
+client.connect(broker_address, broker_port)
+client.loop_forever()
 
