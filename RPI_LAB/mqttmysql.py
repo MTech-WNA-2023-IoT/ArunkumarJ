@@ -29,9 +29,9 @@ conn =pymysql.connect(database="IOTData",user="pi",password="raspberry",host="lo
 cur=conn.cursor()
 #Create a dictonary containing the fields, name, age and place
 # data={'name':'hello','age':10,'place':'kollam'}
-data={`ID`:'','TimeStamp':current_timestamp(),'Topic':'Sensor/TEMP','Data':}
+#data={`ID`:'','TimeStamp':current_timestamp(),'Topic':'Sensor/TEMP','Data':}
 #Execute the SQL to write data to the database
-cur.execute("INSERT INTO `MQTTData` (`ID`, `TimeStamp`, `Topic`, `MyData`) VALUES (%d, current_timestamp(), 'Sensor/TEMP', %d);",Data)
+cur.execute("INSERT INTO MQTTData (MyData) VALUES (%d);")
 #Close the cursor
 cur.close()
 #Commit the data to the database
