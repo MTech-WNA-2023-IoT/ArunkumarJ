@@ -31,7 +31,7 @@ cur=conn.cursor()
 # data={'name':'hello','age':10,'place':'kollam'}
 #data={`ID`:'','TimeStamp':current_timestamp(),'Topic':'Sensor/TEMP','Data':}
 #Execute the SQL to write data to the database
-cur.execute(INSERT INTO `MQTTData` (`ID`, `TimeStamp`, `Topic`, `MyData`) VALUES (NULL, current_timestamp(), 'Sensor/TEMP', '34');)
+cur.execute("INSERT INTO `MQTTData` (`ID`, `TimeStamp`, `Topic`, `MyData`) VALUES (NULL, current_timestamp(), 'Sensor/TEMP', '34');")
 #Close the cursor
 cur.close()
 #Commit the data to the database
