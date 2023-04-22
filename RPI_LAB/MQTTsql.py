@@ -38,10 +38,10 @@ def on_message(client, userdata, msg):
     cursor.close()
     db.close()
 
-# # Connect to the MQTT broker and start the main loop
-# client = mqtt.Client()
-# client.on_connect = on_connect
-# client.on_message = on_message
-# client.connect(broker_address, broker_port)
-# client.loop_forever()
+# Connect to the MQTT broker and start the main loop
+client = mqtt.Client()
+client.on_connect = on_connect
+client.on_message = on_message
+client.connect(broker_address, broker_port)
+client.loop_forever()
 
