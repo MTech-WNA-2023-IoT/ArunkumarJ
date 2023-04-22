@@ -25,9 +25,9 @@ def _on_message(client, userdata, msg):
 def _on_connect(mqttclient, userdata, flags, rc):
 # 	print("New Client: "+str(mqttclient)+ " connected")
 # 	print(rc)
-	mqttclient.subscribe("IOT/#", qos=0)	
+	mqttclient.subscribe("Sensor/TEMP", qos=0)	
   
-mqttclient.message_callback_add("IOT/test", test)
+mqttclient.message_callback_add("Sensor/TEMP", test)
 
 mqttclient.connect(broker, port, keepalive=1, bind_address="")
   
