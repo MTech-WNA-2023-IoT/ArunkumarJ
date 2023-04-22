@@ -4,14 +4,14 @@
 import pymysql
 #Create a connection to MySQL Database 
 # conn =pymysql.connect(database="databasename",user="user",password="password",host="localhost")
-conn =pymysql.connect(database="IOTData",user="pi",password="raspberry",host="http://34.93.203.151/phpmyadmin/")
+conn =pymysql.connect(database="IOTData",user="pi",password="raspberry",host="localhost")
 #Create a MySQL Cursor to that executes the SQLs
 cur=conn.cursor()
 #Create a dictonary containing the fields, name, age and place
 # data={'name':'hello','age':10,'place':'kollam'}
-# data={'Topic':'Sensor/TEMP','Data':'40'}
+# data={`ID`:'7','TimeStamp':current_timestamp(),'Topic':'Sensor/TEMP','Data':'40'}
 #Execute the SQL to write data to the database
-cur.execute("INSERT INTO `MQTTData` (`ID`, `TimeStamp`, `Topic`, `MyData`) VALUES ('6', current_timestamp(), 'Sensor/TEMP', '33');")
+cur.execute("INSERT INTO `MQTTData` (`ID`, `TimeStamp`, `Topic`, `MyData`) VALUES ('7', current_timestamp(), 'Sensor/TEMP', '33');")
 #Close the cursor
 cur.close()
 #Commit the data to the database
