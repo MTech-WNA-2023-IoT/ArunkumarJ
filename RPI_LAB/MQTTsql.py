@@ -2,7 +2,7 @@ import paho.mqtt.client as mqtt
 import mysql.connector
 
 # MQTT broker settings
-broker_address = "http://34.93.203.151/"
+broker_address = "0.0.0.0"
 broker_port = 1883
 topic = "Sensor/TEMP"
 
@@ -28,7 +28,7 @@ def on_message(client, userdata, msg):
     cursor = db.cursor()
 
     # Insert sensor data into the database
-    sql = "INSERT INTO `MQTTData` (`ID`, `TimeStamp`, `Topic`, `MyData`) VALUES ('8', current_timestamp(), 'Sensor/TEMP', '38');"
+    sql = "INSERT INTO `MQTTData` (MyData) VALUES (%d);"
     val = (sensor_data,)
     cursor.execute(sql, val)
     db.commit()
