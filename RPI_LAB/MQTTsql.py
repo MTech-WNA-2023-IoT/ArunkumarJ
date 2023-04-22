@@ -7,7 +7,8 @@ broker_port = 1883
 topic = "Sensor/TEMP"
 
 # MySQL database settings
-db_host = "localhost"
+db_host = "34.93.203.151"
+db_port = "3306"
 db_user = "pi"
 db_password = "raspberry"
 db_name = "IOTData"
@@ -23,7 +24,7 @@ def on_message(client, userdata, msg):
     sensor_data = float(msg.payload.decode())
 
     # Connect to the MySQL database
-    db = mysql.connector.connect(host=db_host, user=db_user, password=db_password, database=db_name)
+    db = mysql.connector.connect(host=db_host, port=db_port, user=db_user, password=db_password, database=db_name)
     cursor = db.cursor()
 
     # Insert sensor data into the database
