@@ -4,7 +4,7 @@
 import pymysql
 #Create a connection to MySQL Database 
 # conn =pymysql.connect(database="databasename",user="user",password="password",host="localhost")
-conn =pymysql.connect(database="IOTData",user="pi",password="raspberry",host="localhost")
+conn =pymysql.connect(database="IOTData",user="pi",password="raspberry",host="http://34.93.203.151/phpmyadmin")
 #Create a MySQL Cursor to that executes the SQLs
 cur=conn.cursor()
 #Create a dictonary containing the fields, name, age and place
