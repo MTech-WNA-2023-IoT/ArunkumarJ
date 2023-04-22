@@ -13,7 +13,7 @@ connection = pymysql.connect(
 cursor = connection.cursor()
 
 # execute a SQL command to insert data into a table
-sql_command = "("INSERT INTO `MQTTData` (`ID`, `TimeStamp`, `Topic`, `MyData`) VALUES ('8', current_timestamp(), 'Sensor/TEMP', '38');")"
+sql_command = ("INSERT INTO `MQTTData` (`ID`, `TimeStamp`, `Topic`, `MyData`) VALUES ('8', current_timestamp(), 'Sensor/TEMP', '38');")
 #values = ("value1", "value2", "value3")
 cursor.execute(sql_command, values)
 
