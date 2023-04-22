@@ -2,7 +2,7 @@ import paho.mqtt.client as mqtt
 import mysql.connector
 
 # MQTT broker settings
-broker_address = "localhost"
+broker_address = "http://34.93.203.151/"
 broker_port = 1883
 topic = "Sensor/TEMP"
 
