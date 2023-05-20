@@ -44,7 +44,7 @@ def _on_message(client, userdata, msg):
 def _on_connect(mqttclient, userdata, flags, rc):
 # 	print("New Client: "+str(mqttclient)+ " connected")
 # 	print(rc)
-	mqttclient.subscribe("IOT/#", qos=0)	
+	mqttclient.subscribe("SENSOR/#", qos=0)	
   
 mqttclient.message_callback_add("SENSOR/TEMP", test)
 
