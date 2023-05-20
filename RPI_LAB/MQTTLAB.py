@@ -7,7 +7,7 @@ global port;
 
 
 
-broker = "34.93.54.122";
+broker = "0.0.0.0";
 port = 1883;
 
 client_uniq = "pubclient_123"
@@ -19,13 +19,13 @@ def test(client, userdata, message):
   print("userdata:"+ str(userdata))
   print("message:"+ str(message.payload))
   payload=float(message.payload)
-  conn =pymysql.connect(database="iot_diya",user="diyaupradeep",password="diyaupradeep",host="localhost")
+  conn =pymysql.connect(database="iot_diya",user="pi",password="raspberry",host="localhost")
   #Create a MySQL Cursor to that executes the SQLs
   cur=conn.cursor()
   #Create a dictonary containing the fields, name, age and place
-  data={'topic':'IOT/test','data':message.payload}
+  data={'topic':'SENSOR/TEMP','data':message.payload}
   #Execute the SQL to write data to the database
-  cur.execute("INSERT INTO `iot_data`(`topic`,`data`)VALUES(%(topic)s,%(data)s);",data)
+  cur.execute("INSERT INTO `IOTData`(`topic`,`data`)VALUES(%(topic)s,%(data)s);",data)
   #Close the cursor
   #cur.close()
   #Commit the data to the database
@@ -46,7 +46,7 @@ def _on_connect(mqttclient, userdata, flags, rc):
 # 	print(rc)
 	mqttclient.subscribe("IOT/#", qos=0)	
   
-mqttclient.message_callback_add("IOT/test", test)
+mqttclient.message_callback_add("SENSOR/TEMP", test)
 
 mqttclient.connect(broker, port, keepalive=1, bind_address="")
   
