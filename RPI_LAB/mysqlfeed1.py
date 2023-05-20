@@ -2,7 +2,7 @@ import pymysql
 
 # establish connection to remote MySQL database
 connection = pymysql.connect(
-    host='34.93.203.151',
+    host='0.0.0.0',
     port=3306,
     user='pi',
     password='raspberry',
