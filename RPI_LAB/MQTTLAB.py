@@ -25,7 +25,7 @@ def test(client, userdata, message):
   #Create a dictonary containing the fields, name, age and place
   data={'topic':'SENSOR/TEMP','data':message.payload}
   #Execute the SQL to write data to the database
-  cur.execute("INSERT INTO `IOTData`(`topic`,`data`)VALUES(%(topic)s,%(data)s);",data)
+  cur.execute("INSERT INTO `MQTTData`(`topic`,`data`)VALUES(%(topic)s,%(data)s);",data)
   #Close the cursor
   #cur.close()
   #Commit the data to the database
