@@ -23,9 +23,9 @@ def test(client, userdata, message):
   #Create a MySQL Cursor to that executes the SQLs
   cur=conn.cursor()
   #Create a dictonary containing the fields, name, age and place
-  data={'Topic':'SENSOR/TEMP','MyData':message.payload}
+  data={'topic':'SENSOR/TEMP','data':message.payload}
   #Execute the SQL to write data to the database
-  cur.execute("INSERT INTO `MQTTData`(`Topic`,`MyData`)VALUES(%(topic)s,%(data)s);",data)
+  cur.execute("INSERT INTO `MQTTData`(`topic`,`data`)VALUES(%(topic)s,%(data)s);",data)
   #Close the cursor
   #cur.close()
   #Commit the data to the database
