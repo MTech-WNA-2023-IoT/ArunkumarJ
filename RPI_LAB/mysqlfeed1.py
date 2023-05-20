@@ -6,7 +6,7 @@ connection = pymysql.connect(
     port=3306,
     user='pi',
     password='raspberry',
-    db='IoTData'
+    db='IOTData'
 )
 
 # create a cursor to execute SQL commands
