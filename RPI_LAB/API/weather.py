@@ -12,5 +12,5 @@ print("Raw Data")
 print(json_api)
 
 print("Parsed Data")
-data=json_api['temp_c']
+data=json_api['current']['temp_c']
 print(data)
