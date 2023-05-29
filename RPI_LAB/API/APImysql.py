@@ -15,7 +15,7 @@ from flaskext.mysql import MySQL
 app=Flask(__name__)
 
 #assign Flask-Mysql Module
-sql=MySQL()
+mysql=MySQL()
 
 #Configure MySQL
 app.config['MYSQL_DATABASE_USER'] = 'pi'
@@ -24,7 +24,7 @@ app.config['MYSQL_DATABASE_DB'] = 'IOTData'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 
 #initialise MySQL (connect to mysql)
-MySQL.init_app(app)
+mysql.init_app(app)
 
 #Create 1st API function for testing
 #once you open "localhost:<port>/" this function is executed.
@@ -42,7 +42,7 @@ def welcome():
 @app.route('/API1')
 def recentlocation():
 #Create a MySQL Cursor	
-	cur = MySQL.connect().cursor()
+	cur = mysql.connect().cursor()
 #Execute the SQL
 	cur.execute('select * from MQTTData ORDER BY ID DESC LIMIT 4 ')
 #Receive the SQL Response in a variable
