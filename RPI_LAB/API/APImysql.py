@@ -32,15 +32,15 @@ mysql.init_app(app)
 
 @app.route('/')
 #Give a funtion name
-def welcome():
-#return is the data given by the API
-	return "\tWelcome.... \tKindly use one of the APIs to get data"
+# def welcome():
+# #return is the data given by the API
+# 	return "\tWelcome.... \tKindly use one of the APIs to get data"
 
-#Create your first real API- "recentlocation" is the API that gives recent device location
-#This API will fetch data from the MySQL Database and display it on the URL
+# #Create your first real API- "recentlocation" is the API that gives recent device location
+# #This API will fetch data from the MySQL Database and display it on the URL
 
-@app.route('/API1')
-def recentlocation():
+# @app.route('/API1')
+# def recentlocation():
 #Create a MySQL Cursor	
 	cur = mysql.connect().cursor()
 #Execute the SQL
