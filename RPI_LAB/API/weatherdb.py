@@ -24,7 +24,7 @@ db_cursor = db.cursor()
 # db_cursor.execute(create_table_query)
 
 # Extract the relevant data from the JSON response
-data = json_api['current']
+current = json_api['current']
 location_data = json_api['location']
 
 # Insert the data into the table
