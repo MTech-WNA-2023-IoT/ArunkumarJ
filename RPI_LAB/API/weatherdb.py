@@ -28,8 +28,10 @@ current_data = json_api['current']
 location_data = json_api['location']
 
 # Insert the data into the table
-
-sql = "INSERT INTO `weather_data` (`location_name`, `region`, `country`, `latitude`, `longitude`, `timezone_id`, `localtime_epoch`, `localtime`, `last_updated_epoch`, `last_updated`, `temp_c`, `temp_f`, `is_day`, `condition_text`, `condition_icon`, `condition_code`, `wind_mph`, `wind_kph`, `wind_degree`, `wind_dir`, `pressure_mb`, `pressure_in`, `precip_mm`, `precip_in`, `humidity`, `cloud`, `feelslike_c`, `feelslike_f`, `vis_km`, `vis_miles`, `uv`, `gust_mph`, `gust_kph`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+sql = """
+INSERT INTO `weather_data` (`location_name`, `region`, `country`, `latitude`, `longitude`, `timezone_id`, `localtime_epoch`, `localtime`, `last_updated_epoch`, `last_updated`, `temp_c`, `temp_f`, `is_day`, `condition_text`, `condition_icon`, `condition_code`, `wind_mph`, `wind_kph`, `wind_degree`, `wind_dir`, `pressure_mb`, `pressure_in`, `precip_mm`, `precip_in`, `humidity`, `cloud`, `feelslike_c`, `feelslike_f`, `vis_km`, `vis_miles`, `uv`, `gust_mph`, `gust_kph`)
+VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+"""
 # Prepare the SQL INSERT statement
 # sql = "INSERT INTO weather_data (location_name, region, country, latitude, longitude, timezone_id, localtime_epoch, localtime, last_updated_epoch, last_updated, temp_c, temp_f, is_day, condition_text, condition_icon, condition_code, wind_mph, wind_kph, wind_degree, wind_dir, pressure_mb, pressure_in, precip_mm, precip_in, humidity, cloud, feelslike_c, feelslike_f, vis_km, vis_miles, uv, gust_mph, gust_kph) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
 
