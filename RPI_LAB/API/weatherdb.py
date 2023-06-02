@@ -48,7 +48,7 @@ db.commit()
 
 db.close()
 
-print("Raw Data")
-print(json_api)
+# print("Raw Data")
+# print(json_api)
 
 print("Data saved to MySQL successfully!")
