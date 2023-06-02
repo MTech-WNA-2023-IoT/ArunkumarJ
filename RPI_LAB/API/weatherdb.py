@@ -13,7 +13,7 @@ print("Raw Data")
 print(json_api)
 
 # Connect to MySQL database
-db_connection = mysql.connector.connect(
+db = mysql.connector.connect(
     host='0.0.0.0',
     user='pi',
     password='raspberry',
