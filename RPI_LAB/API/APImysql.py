@@ -44,7 +44,7 @@ def recentlocation():
 #Create a MySQL Cursor	
 	cur = mysql.connect().cursor()
 #Execute the SQL
-	cur.execute('select * from weather_data ORDER BY ID DESC LIMIT 1 ')
+	cur.execute('select * from weather_data ORDER BY ID DESC LIMIT 2')
 #Receive the SQL Response in a variable
 	r = [dict((cur.description[i][0], value) for i, value in enumerate(row)) for row in cur.fetchall()]
 #Return the respose to the URL
