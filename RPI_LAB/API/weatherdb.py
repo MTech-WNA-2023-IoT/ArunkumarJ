@@ -21,7 +21,7 @@ db_connection = mysql.connector.connect(
 )
 # Execute the create table query
 db_cursor = db_connection.cursor()
-db_cursor.execute(create_table_query)
+# db_cursor.execute(create_table_query)
 
 # Extract the relevant data from the JSON response
 data = json_api['current']
