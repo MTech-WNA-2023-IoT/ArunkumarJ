@@ -20,7 +20,7 @@ mysql=MySQL()
 #Configure MySQL
 app.config['MYSQL_DATABASE_USER'] = 'pi'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'raspberry'
-app.config['MYSQL_DATABASE_DB'] = 'IOTData'
+app.config['MYSQL_DATABASE_DB'] = 'API'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 
 #initialise MySQL (connect to mysql)
@@ -44,7 +44,7 @@ def recentlocation():
 #Create a MySQL Cursor	
 	cur = mysql.connect().cursor()
 #Execute the SQL
-	cur.execute('select * from MQTTData ORDER BY ID DESC LIMIT 4 ')
+	cur.execute('select * from weather_data ORDER BY ID DESC LIMIT 1 ')
 #Receive the SQL Response in a variable
 	r = [dict((cur.description[i][0], value) for i, value in enumerate(row)) for row in cur.fetchall()]
 #Return the respose to the URL
