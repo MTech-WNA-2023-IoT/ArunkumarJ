@@ -24,14 +24,17 @@ db_cursor = db.cursor()
 # db_cursor.execute(create_table_query)
 
 # Extract the relevant data from the JSON response
-current = json_api['current']
+current_data = json_api['current']
 location_data = json_api['location']
 
 # Insert the data into the table
 
-sql = """
+sql = "
 INSERT INTO `weather_data` (`location_name`, `region`, `country`, `latitude`, `longitude`, `timezone_id`, `localtime_epoch`, `localtime`, `last_updated_epoch`, `last_updated`, `temp_c`, `temp_f`, `is_day`, `condition_text`, `condition_icon`, `condition_code`, `wind_mph`, `wind_kph`, `wind_degree`, `wind_dir`, `pressure_mb`, `pressure_in`, `precip_mm`, `precip_in`, `humidity`, `cloud`, `feelslike_c`, `feelslike_f`, `vis_km`, `vis_miles`, `uv`, `gust_mph`, `gust_kph`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-"""
+"
+# Prepare the SQL INSERT statement
+# sql = "INSERT INTO weather_data (location_name, region, country, latitude, longitude, timezone_id, localtime_epoch, localtime, last_updated_epoch, last_updated, temp_c, temp_f, is_day, condition_text, condition_icon, condition_code, wind_mph, wind_kph, wind_degree, wind_dir, pressure_mb, pressure_in, precip_mm, precip_in, humidity, cloud, feelslike_c, feelslike_f, vis_km, vis_miles, uv, gust_mph, gust_kph) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+
 # Prepare the values for the SQL statement
 values = (
     location_data["name"],
@@ -42,31 +45,31 @@ values = (
     location_data["tz_id"],
     location_data["localtime_epoch"],
     location_data["localtime"],
-    current["last_updated_epoch"],
-    current["last_updated"],
-    current["temp_c"],
-    current["temp_f"],
-    current["is_day"],
-    current["condition"]["text"],
-    current["condition"]["icon"],
-    current["condition"]["code"],
-    current["wind_mph"],
-    current["wind_kph"],
-    current["wind_degree"],
-    current["wind_dir"],
-    current["pressure_mb"],
-    current["pressure_in"],
-    current["precip_mm"],
-    current["precip_in"],
-    current["humidity"],
-    current["cloud"],
-    current["feelslike_c"],
-    current["feelslike_f"],
-    current["vis_km"],
-    current["vis_miles"],
-    current["uv"],
-    current["gust_mph"],
-    current["gust_kph"]
+    current_data["last_updated_epoch"],
+    current_data["last_updated"],
+    current_data["temp_c"],
+    current_data["temp_f"],
+    current_data["is_day"],
+    current_data["condition"]["text"],
+    current_data["condition"]["icon"],
+    current_data["condition"]["code"],
+    current_data["wind_mph"],
+    current_data["wind_kph"],
+    current_data["wind_degree"],
+    current_data["wind_dir"],
+    current_data["pressure_mb"],
+    current_data["pressure_in"],
+    current_data["precip_mm"],
+    current_data["precip_in"],
+    current_data["humidity"],
+    current_data["cloud"],
+    current_data["feelslike_c"],
+    current_data["feelslike_f"],
+    current_data["vis_km"],
+    current_data["vis_miles"],
+    current_data["uv"],
+    current_data["gust_mph"],
+    current_data["gust_kph"]
 )
 
 # Execute the SQL statement
