@@ -9,8 +9,8 @@ api_page = urlopen(url)
 api = api_page.read()
 json_api = json.loads(api)
 
-print("Raw Data")
-print(json_api)
+# print("Raw Data")
+# print(json_api)
 
 # Connect to MySQL database
 db = mysql.connector.connect(
@@ -78,5 +78,8 @@ db.commit()
 # Close the connection
 
 db.close()
+
+print("Raw Data")
+print(json_api)
 
 print("Data saved to MySQL successfully!")
