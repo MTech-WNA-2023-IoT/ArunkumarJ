@@ -70,7 +70,7 @@ values = (
 )
 
 # Execute the SQL statement
-cursor.execute(sql, values)
+db_cursor.execute(sql, values)
 # Commit the changes
 
 db.commit()
