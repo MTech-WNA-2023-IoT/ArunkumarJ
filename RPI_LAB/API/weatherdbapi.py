@@ -11,7 +11,7 @@ import MySQLdb
 
 # Connect to the database
 
-db = MySQLdb.connect(host='localhost', user='root', passwd='password', db='weather')
+db = MySQLdb.connect(host='localhost', user='pi', passwd='raspberry', db='API')
 
 # Create a cursor
 
