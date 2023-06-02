@@ -40,7 +40,7 @@ def welcome():
 # #This API will fetch data from the MySQL Database and display it on the URL
 
 @app.route('/API1')
-# def recentlocation():
+def recentlocation():
 #Create a MySQL Cursor	
 	cur = mysql.connect().cursor()
 #Execute the SQL
