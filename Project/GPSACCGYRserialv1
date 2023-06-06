@@ -1,0 +1,56 @@
+#include <Wire.h>
+#include <MPU6050.h>
+#include <SoftwareSerial.h>
+#include <TinyGPS++.h>
+
+SoftwareSerial gpsSerial(16, 17);  // RX, TX pins for GPS module
+TinyGPSPlus gps;
+
+MPU6050 mpu;
+
+void setup() {
+  Serial.begin(115200);
+  Wire.begin();
+
+  mpu.initialize();
+  mpu.setFullScaleAccelRange(2);
+  mpu.setFullScaleGyroRange(250);
+  mpu.setDLPFMode(3);
+
+  gpsSerial.begin(9600);
+}
+
+void loop() {
+  // Read GPS data
+  while (gpsSerial.available() > 0) {
+    if (gps.encode(gpsSerial.read())) {
+      if (gps.location.isValid()) {
+        Serial.print("Latitude: ");
+        Serial.println(gps.location.lat(), 6);
+        Serial.print("Longitude: ");
+        Serial.println(gps.location.lng(), 6);
+      }
+    }
+  }
+
+  // Read accelerometer and gyroscope data
+  int16_t ax, ay, az, gx, gy, gz;
+  mpu.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
+
+  Serial.print("Accel (mg): ");
+  Serial.print(ax);
+  Serial.print("\t");
+  Serial.print(ay);
+  Serial.print("\t");
+  Serial.print(az);
+  Serial.print("\t");
+  
+  Serial.print("Gyro (dps): ");
+  Serial.print(gx);
+  Serial.print("\t");
+  Serial.print(gy);
+  Serial.print("\t");
+  Serial.println(gz);
+
+  delay(1000);
+}
