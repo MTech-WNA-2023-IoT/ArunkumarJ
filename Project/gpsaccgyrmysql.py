@@ -11,7 +11,7 @@ mqtt_topic = "gpsaccgyr"
 mysql_host = "0.0.0.0"
 mysql_user = "pi"
 mysql_password = "raspberry"
-mysql_database = "MYSQL_DATABASE"
+mysql_database = "Project"
 
 def on_connect(client, userdata, flags, rc):
     print("Connected to MQTT broker")
@@ -37,7 +37,7 @@ def on_message(client, userdata, msg):
         cursor = db.cursor()
        
         # Insert the received data into the table
-        query = "INSERT INTO your_table (latitude, longitude, accel_x, accel_y, accel_z, gyro_x, gyro_y, gyro_z) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+        query = "INSERT INTO gps_acc_gyr (latitude, longitude, accel_x, accel_y, accel_z, gyro_x, gyro_y, gyro_z) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
         values = (
             json_data["latitude"],
             json_data["longitude"],
