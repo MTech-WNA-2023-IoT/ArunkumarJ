@@ -33,7 +33,7 @@ current_data = json_api['current']
 # VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
 # """
 sql = """
-INSERT INTO `weather_data` (`temp_c`, `temp_f`, `humidity`)
+INSERT INTO `data` (`temp_c`, `temp_f`, `humidity`)
 VALUES (%s, %s, %s)
 """
 # Prepare the SQL INSERT statement
